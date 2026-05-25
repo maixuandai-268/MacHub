@@ -1,0 +1,31 @@
+{
+  "name": "cybershop",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:user": "npm --workspace apps/user run dev",
+    "dev:admin": "npm --workspace apps/admin run dev",
+    "dev:api": "npm --workspace apps/api run dev",
+    "dev:checkout": "concurrently -n api,user \"npm run dev:api\" \"npm run dev:user\"",
+    "dev": "concurrently -n user,admin,api \"npm run dev:user\" \"npm run dev:admin\" \"npm run dev:api\"",
+    "seed:demo": "npm --workspace apps/api run seed:demo",
+    "check:vnpay-env": "node scripts/check-vnpay-env.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "dependencies": {
+    "framer-motion": "^12.29.2",
+    "lucide-react": "^0.563.0"
+  }
+}

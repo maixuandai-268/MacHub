@@ -1,0 +1,9 @@
+node_modules
+.env
+dist
+.env.*
+!.env.example
+.DS_Store
+coverage
+.vite
+npm-debug.log*
